@@ -38,14 +38,16 @@ Editor.prototype.replace = function (find, replace) {
     if(index >= 0){
       that.lines[i] = line.replace(find, replace);
       result += 1
+    } else {
+      throw 'The given word does not exist.'
     }
   })
-  return result
+  return find + " was replaced " + result + " times"
 }
 
 var textEd = new Editor;
 textEd.write('Once upon a time at Galvanize...');
 textEd.write('I learned to code.');
 
-console.log(textEd.replace('code', 'to be cool'));
+console.log(textEd.replace('hi', 'to be cool'));
 console.log(textEd);
