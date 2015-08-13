@@ -29,8 +29,23 @@ Editor.prototype.find = function (word) {
   return word + " " + result
 }
 
+Editor.prototype.replace = function (find, replace) {
+  var result = 0;
+  newWord = new RegExp(find, 'i')
+  that = this;
+  this.lines.forEach(function(line, i){
+    var index = line.search(newWord)
+    if(index >= 0){
+      that.lines[i] = line.replace(find, replace);
+      result += 1
+    }
+  })
+  return result
+}
+
 var textEd = new Editor;
 textEd.write('Once upon a time at Galvanize...');
 textEd.write('I learned to code.');
 
-console.log(textEd.find('once'));
+console.log(textEd.replace('code', 'to be cool'));
+console.log(textEd);
