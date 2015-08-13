@@ -23,3 +23,5 @@ console.log(textEd.toString());
 textEd.undo();
 
 console.log(textEd);
+textEd.undo();
+console.log(textEd);
