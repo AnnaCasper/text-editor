@@ -19,3 +19,7 @@ textEd.write('Once upon a time at Galvanize...');
 textEd.write('I learned to code.');
 
 console.log(textEd.toString());
+
+textEd.undo();
+
+console.log(textEd);
