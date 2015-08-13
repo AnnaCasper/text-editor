@@ -14,19 +14,23 @@ Editor.prototype.undo = function(){
   if(this.lines.length === 0){
     throw "This editor has no lines"
   } else {
-    this.lines.splice(this.lines.length -1, 1)
+    this.lines.pop()
   }
+}
+
+Editor.prototype.find = function (word) {
+  var result = 0;
+  newWord = new RegExp(word, 'i')
+  this.lines.forEach(function(line){
+    if(line.search(newWord) >= 0){
+      result += 1
+    }
+  })
+  return word + " " + result
 }
 
 var textEd = new Editor;
 textEd.write('Once upon a time at Galvanize...');
 textEd.write('I learned to code.');
 
-console.log(textEd.toString());
-
-textEd.undo();
-
-console.log(textEd);
-textEd.undo();
-console.log(textEd);
-textEd.undo();
+console.log(textEd.find('once'));
