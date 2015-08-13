@@ -11,7 +11,11 @@ Editor.prototype.toString = function () {
 }
 
 Editor.prototype.undo = function(){
-  this.lines.splice(this.lines.length -1, 1)
+  if(this.lines.length === 0){
+    throw "This editor has no lines"
+  } else {
+    this.lines.splice(this.lines.length -1, 1)
+  }
 }
 
 var textEd = new Editor;
@@ -25,3 +29,4 @@ textEd.undo();
 console.log(textEd);
 textEd.undo();
 console.log(textEd);
+textEd.undo();
