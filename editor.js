@@ -1,9 +1,9 @@
 var Editor = function () {
-  this.lines = ''
+  this.lines = []
 }
 
 Editor.prototype.write = function (string){
-  this.lines += ' ' + string
+  this.lines.push(string)
 }
 
 var textEd = new Editor;
