@@ -6,11 +6,16 @@ Editor.prototype.write = function (string){
   this.lines.push(string)
 }
 
+Editor.prototype.toString = function () {
+  return this.lines.join('\n')
+}
+
+Editor.prototype.undo = function(){
+  this.lines.splice(this.lines.length -1, 1)
+}
+
 var textEd = new Editor;
 textEd.write('Once upon a time at Galvanize...');
-
-console.log(textEd);
-
 textEd.write('I learned to code.');
 
-console.log(textEd);
+console.log(textEd.toString());
